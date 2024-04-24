@@ -1,21 +1,15 @@
-# initial-instructions
+## Ejercicios de ansible  para iniciarse en el Mundo de DevOps
 
-Manten los apartados `Estructura del Repositorio` , `Contribución` y modifica el resto de apartados
+¡Bienvenido/a a los ejercicios básicos de ansible  para iniciarse en el mundo de DevOps!
 
-
-## Ejercicios de _tecnologia_ para iniciarse en el Mundo de DevOps
-
-¡Bienvenido/a a los ejercicios básicos de _tecnologia_ para iniciarse en el mundo de DevOps!
-
-Este repositorio contiene una serie de ejercicios diseñados para ayudarte a familiarizarte con ...
+Este repositorio contiene una serie de ejercicios diseñados para ayudarte a familiarizarte con ansible y algunas formas de hacer uso de esta herramienta.
 
 ## Objetivos
 
-El propósito principal de estos ejercicios es proporcionarte una introducción práctica a los conceptos clave de _tecnologia_ que son esenciales para cualquier persona interesada en trabajar en el área de DevOps. Al completar estos ejercicios, esperamos que adquieras experiencia práctica con:
+El propósito principal de estos ejercicios es proporcionarte una introducción práctica a los conceptos clave de ansible  que son esenciales para cualquier persona interesada en trabajar en el área de DevOps. Al completar estos ejercicios, esperamos que adquieras experiencia práctica con:
 
-- ...
-- ...
-- ...
+- Creación de roles reutilizables
+- Uso de ansible-vault
 
 ## Estructura del Repositorio
 
