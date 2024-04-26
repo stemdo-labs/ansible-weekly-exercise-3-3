@@ -1,4 +1,4 @@
-- name: Crear cuentas de profesor y darles permisos de sudo
+- name: Crear cuentas de profesor en la escuela "{{ nombre_escuela }}" con permisos sudo
   hosts: profesor
   become: true
   tasks:

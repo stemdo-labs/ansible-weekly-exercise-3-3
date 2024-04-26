@@ -1,5 +1,5 @@
 
-- name: Crear cuentas de alumno con contraseñas genéricas
+- name: Crear cuentas de alumno en la escuela "{{ nombre_escuela }}"
   hosts: alumnos
   tasks:
     - name: Crear cuentas de alumno
