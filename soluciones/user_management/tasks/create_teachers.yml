@@ -4,7 +4,7 @@
   tasks:
     - name: Crear cuentas de profesor
       user:
-        name: "{{ profesor_nombre_completo }}"
+        name: "{{ teacher_name }}"
         password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           35373035623531373862396463623138383766386662613965623130316530653830633263653431
@@ -19,6 +19,6 @@
       lineinfile:
         dest: /etc/sudoers
         state: present
-        line: "{{ profesor_nombre_completo }} ALL=(ALL) NOPASSWD: ALL"
+        line: "{{ teacher_name }} ALL=(ALL) NOPASSWD: ALL"
         validate: 'visudo -cf %s'
 
