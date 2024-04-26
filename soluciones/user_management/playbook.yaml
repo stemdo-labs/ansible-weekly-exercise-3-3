@@ -1,0 +1,4 @@
+- name: Aplicar el rol user_management
+  hosts: all
+  roles:
+    - user_management
