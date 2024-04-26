@@ -1,4 +1,5 @@
 - name: Aplicar el rol user_management
   hosts: all
+  become: yes
   roles:
     - user_management
