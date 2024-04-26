@@ -1,0 +1,27 @@
+- hosts: alumnos
+  vars: 
+    - teacher_name: profesor
+  become: yes
+
+  tasks:
+    - name: Obtener información de los usuarios cuyos nombres empiezan por 'alumno'
+      ansible.builtin.shell: "getent passwd | grep '^alumno' | cut -d: -f1"
+      register: nombres_cuentas_alumnos
+      changed_when: false
+      check_mode: no
+
+    - name: Crear carpeta 'soluciones' para cada usuario 'alumno'
+      ansible.builtin.file:
+        path: "/home/{{ item }}/soluciones"
+        state: directory
+        owner: "{{ item }}"
+        group: "alumnos"
+        mode: "0755"
+      loop: "{{ nombres_cuentas_alumnos.stdout_lines }}"
+
+    - name: Dar permisos al profesor sobre soluciones
+      ansible.builtin.command: >
+        setfacl -m u:{{ teacher_name }}:rwx "/home/{{ item }}/soluciones"
+      loop: "{{ nombres_cuentas_alumnos.stdout_lines }}"
+
+      become: yes
