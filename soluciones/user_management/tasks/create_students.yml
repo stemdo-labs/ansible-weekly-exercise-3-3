@@ -1,0 +1,11 @@
+
+- name: Crear cuentas de alumno con contraseñas genéricas
+  hosts: alumnos
+  tasks:
+    - name: Crear cuentas de alumno
+      user:
+        name: "{{ item }}"
+        password: "{{ contrasena_alumno_generica }}"
+        groups: alumnos
+        state: present
+      loop: "{{ alumnos }}"
