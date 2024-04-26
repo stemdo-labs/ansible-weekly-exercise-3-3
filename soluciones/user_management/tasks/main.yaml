@@ -1,0 +1,9 @@
+- name: Ejecutar el rol para crear cuentas de alumno
+  hosts: all
+  roles:
+    - role: /create_students.yml
+
+- name: Ejecutar el rol para crear cuentas de profesor
+  hosts: all
+  roles:
+     - role: /create_teachers.yml
