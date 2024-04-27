@@ -1,0 +1,25 @@
+vault_teacher_password: teacher
+vault_student_password: student
+profesores:
+  - name: Pedro
+    password: '{{ vault_teacher_password }}'
+    groups:
+      - profesores
+    expires: false
+    uid: 1040
+  - name: Juan
+    password: '{{ vault_teacher_password }}'
+    groups:
+      - profesores
+    expires: false
+    uid: 1041
+alumnos_common:
+  password: '{{ vault_student_password }}'
+  groups:
+    - alumnos
+  expires: true
+alumnos: []
+alumnos_numero: 20
+grupos_todos:
+  - profesores
+  - alumnos

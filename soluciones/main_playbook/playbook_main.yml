@@ -1,0 +1,5 @@
+- name: Ejecutar playbook de user_management
+  hosts: profesores:alumnos
+  become: yes
+  roles:
+    - role: ../user_management

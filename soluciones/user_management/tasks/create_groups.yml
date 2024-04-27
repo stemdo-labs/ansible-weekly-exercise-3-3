@@ -1,0 +1,13 @@
+- name: Crear grupo de todos los usuarios
+  hosts: profesores:alumnos
+  become: yes
+  vars_files:
+    - ../user_management/vars/main.yml
+  tasks:
+    - name: Crear grupo de todos los usuarios
+      group:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ grupos_todos }}"
+
+#con esto en cada nodo se crearan los grupos profesores y alumnos

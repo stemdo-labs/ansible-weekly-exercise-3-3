@@ -1,0 +1,5 @@
+- name: Ejecutar playbook de crear grupos
+  include_tasks: create_groups.yml
+
+- name: Ejecutar playbook de crear usuarios
+  include_tasks: create_users.yml
