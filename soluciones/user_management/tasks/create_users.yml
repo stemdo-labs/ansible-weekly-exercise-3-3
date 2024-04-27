@@ -1,0 +1,40 @@
+- name: Crear usuarios y asignar grupos
+  hosts: profesores:alumnos
+  become: yes
+  vars_files:
+    - ../user_management/vars/main.yml
+  tasks:
+    - name: Crear usuarios para profesores
+      set_fact:
+        profesores_list: "{{ profesores_list | default([]) + [{'name': item.name, 'password': item.password, 'groups': item.groups, 'expires': item.expires, 'uid': item.uid}] }}"
+      loop: "{{ profesores }}"
+      when: profesores | length > 0
+
+    - name: Crear usuarios para profesores
+      user:
+        name: "{{ item.name }}"
+        password: "{{ item.password }}"
+        groups: "{{ item.groups }}"
+        state: present
+        expires: "{{ item.expires }}"
+        uid: "{{ item.uid }}"
+      loop: "{{ profesores_list | default([]) }}"
+
+    - name: Crear lista de alumnos
+      set_fact:
+        alumnos_list: "{{ alumnos_list | default([]) + [{'name': 'Invitado' + (item | string), 'password': alumnos_common.password, 'groups': alumnos_common.groups, 'expires': alumnos_common.expires}] }}"
+      loop: "{{ range(1, alumnos_numero + 1) | list }}"
+      when: alumnos_numero | int > 0
+
+    - name: Crear usuarios para alumnos
+      user:
+        name: "{{ item.name }}"
+        password: "{{ item.password }}"
+        groups: "{{ item.groups }}"
+        state: present
+        expires: "{{ item.expires }}"
+      loop: "{{ alumnos_list | default([]) }}"
+
+
+
+
